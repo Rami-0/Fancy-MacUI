@@ -13,10 +13,10 @@ import HealthMajors_jpg from '../assets/img/Projects/HealthMajors.jpg';
 import Mzg from '../assets/img/Projects/Mzg.jpg';
 import Qiddam from '../assets/img/Projects/Qiddam.jpg';
 
-import nizamAmervid from '../assets/video/nizamAmer.mp4';
-import nizamAmergif from '../assets/video/nizamAmer.gif';
-import Ideation from '../assets/video/IDEATION.mp4';
-import Ideation_gif from '../assets/video/IDEATION.gif';
+// import nizamAmervid from '../assets/video/nizamAmer.mp4';
+// import nizamAmergif from '../assets/video/nizamAmer.gif';
+// import Ideation from '../assets/video/IDEATION.mp4';
+// import Ideation_gif from '../assets/video/IDEATION.gif';
 
 import nec_1 from '../assets/video/nec_1.gif';
 import nec_2 from '../assets/video/nec_2.gif';
@@ -127,15 +127,15 @@ export const myProjects2 = [
 		description: '',
 		link: 'https://www.instagram.com/reel/C6zIB42oLZA/?igsh=MTUwcnVucXhlcHh4cQ==',
 	},
-	{
-		name: 'SBA | Employees System explainer',
-		img: nizamAmergif,
-		id: 2,
-		boolean: false,
-		description: '',
-		link: '',
-		video: nizamAmervid,
-	},
+	// {
+	// 	name: 'SBA | Employees System explainer',
+	// 	img: nizamAmergif,
+	// 	id: 2,
+	// 	boolean: false,
+	// 	description: '',
+	// 	link: '',
+	// 	video: nizamAmervid,
+	// },
 	{
 		name: 'National Event Centre Achievement',
 		img: [nec_1, nec_2, nec_3],
@@ -144,15 +144,15 @@ export const myProjects2 = [
 		description: '',
 		link: 'https://streamable.com/e/fc1ds6',
 	},	
-	{
-		name: 'Ideation | Prodaction intro',
-		img: Ideation_gif,
-		id: 4,
-		boolean: false,
-		description: '',
-		link: '',
-		video: Ideation,
-	},
+	// {
+	// 	name: 'Ideation | Prodaction intro',
+	// 	img: Ideation_gif,
+	// 	id: 4,
+	// 	boolean: false,
+	// 	description: '',
+	// 	link: '',
+	// 	video: Ideation,
+	// },
 	{
 		name: 'TagPlus',
 		img: tagPluse,

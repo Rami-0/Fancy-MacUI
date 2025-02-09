@@ -41,25 +41,25 @@ code {
 @font-face {
 	font-family: "Expo Arabic";
 	src: local("Expo Arabic"),
-	url("./fonts/Expo Arabic/Expo Arabic Bold.ttf") format("truetype");
+	url("../fonts/Expo Arabic/Expo Arabic Bold.ttf") format("truetype");
 	font-weight: bold;
 }
 @font-face {
 	font-family: "Expo Arabic";
 	src: local("Expo Arabic"),
-		url("./fonts/Expo Arabic/Expo Arabic Book.ttf") format("truetype");
+		url("../fonts/Expo Arabic/Expo Arabic Book.ttf") format("truetype");
 	font-weight: normal;
 }
 @font-face {
 	font-family: "Expo Arabic";
 	src: local("Expo Arabic"),
-		url("./fonts/Expo Arabic/Expo Arabic Light.ttf") format("truetype");
+		url("../fonts/Expo Arabic/Expo Arabic Light.ttf") format("truetype");
 	font-weight: Light;
 }
 @font-face {
 	font-family: "Expo Arabic";
 	src: local("Expo Arabic"),
-		url("./fonts/Expo Arabic/Expo Arabic Medium.ttf") format("truetype");
+		url("../fonts/Expo Arabic/Expo Arabic Medium.ttf") format("truetype");
 	font-weight: Medium;
 }
 

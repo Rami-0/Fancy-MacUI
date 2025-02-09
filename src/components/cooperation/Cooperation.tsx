@@ -1,6 +1,6 @@
+'use client';
 import React from 'react';
 import css from './Cooperation.module.css';
-import { reveal } from '../../animation';
 
 import Amwal from './assets/Amwal.svg';
 import Arzag from './assets/Arzag.svg';
@@ -14,22 +14,23 @@ import Sportforal from './assets/Sportforal.svg';
 import Wadisafar from './assets/Wadisafar.svg';
 import mzg from './assets/mzg.svg';
 import ultra from './assets/ultra.svg';
+import Image from "next/image";
 
 const Cooperations_arr = [Iktva, Amwal, Wadisafar, KFB, Li_tadom, Arzag, Bsatt, Huge, SBCandStv, Sportforal, mzg, ultra];
 
 const Cooperation = () => {
-	return (
-		<div className={css.SliderWrapper + ' containerPadded reveal'}>
-			<h2 className='reveal'>Collaborated</h2>
-			<div className={css.sliderElements}>
-				{Cooperations_arr.map((e) => {
-					return (
-							<img src={e} alt='logo' />
-					);
-				})}
-			</div>
-		</div>
-	);
+    return (
+        <div className={css.SliderWrapper}>
+            <h2>Collaborated</h2>
+            <div className={css.sliderElements}>
+                {Cooperations_arr.map((e) => {
+                    return (
+                        <Image src={e} alt='logo'/>
+                    );
+                })}
+            </div>
+        </div>
+    );
 };
 
 export default Cooperation;

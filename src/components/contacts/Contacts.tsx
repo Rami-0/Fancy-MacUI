@@ -1,7 +1,7 @@
 import React from "react";
 import { FaLinkedin, FaWhatsappSquare, FaBehanceSquare ,FaInstagramSquare} from "react-icons/fa";
 import css from "./Contacts.module.css";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 // const style = {
 // 	width: 40 + "px",
 //   height:40 + "px"
