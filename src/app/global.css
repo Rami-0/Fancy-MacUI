@@ -1,48 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Expo Arabic", "sans-serif";
 }
-h1 {
+
+html{
+    scroll-behavior: smooth;
+}
+/*::-webkit-scrollbar{*/
+/*	width: 5px;*/
+/*	padding: 3px 5px;*/
+/*}*/
+/*::-webkit-scrollbar-track {*/
+/*  background: white;*/
+/*}*/
+/*!* Handle *!*/
+/*::-webkit-scrollbar-thumb {*/
+/*  background: linear-gradient(#eeffbc, #ffcfe0, #a9ccdf);*/
+/*	border-radius: 100px;*/
+/*}*/
+/*::-webkit-scrollbar-thumb:hover {*/
+
+/*}*/
+
+@font-face {
+    font-family: "Expo Arabic";
+    src: local("Expo Arabic"),
+    url("../fonts/Expo Arabic/Expo Arabic Bold.ttf") format("truetype");
     font-weight: bold;
 }
-.hover:hover {
-    transform: scale(1.1, 0.9);
+@font-face {
+    font-family: "Expo Arabic";
+    src: local("Expo Arabic"),
+    url("../fonts/Expo Arabic/Expo Arabic Book.ttf") format("truetype");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Expo Arabic";
+    src: local("Expo Arabic"),
+    url("../fonts/Expo Arabic/Expo Arabic Light.ttf") format("truetype");
+    font-weight: Light;
+}
+@font-face {
+    font-family: "Expo Arabic";
+    src: local("Expo Arabic"),
+    url("../fonts/Expo Arabic/Expo Arabic Medium.ttf") format("truetype");
+    font-weight: Medium;
 }
 
-.container {
-    width: 100%;
-}
-.containerPadded{
-    padding: 0 8%;
-}
-
-.App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-@media (max-width: 567px) {
-    .hover:hover {
-        transform: scale(1);
-    }
-
-}
-
-
-.pin__arrow{
-    position: absolute;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    right: 0;
-}

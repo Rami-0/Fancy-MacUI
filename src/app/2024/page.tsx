@@ -1,9 +1,11 @@
 import React from "react";
 import PortfolioPage from "@/pages/PortfolioPage/PortfolioPage";
+import MainPage from "@/pages/mainPage/MainPage";
 
 const PageOf2024 = () => {
     return <div>
-        <PortfolioPage/>
+        {/*<PortfolioPage/>*/}
+        <MainPage/>
         PortfolioPage
     </div>
 }

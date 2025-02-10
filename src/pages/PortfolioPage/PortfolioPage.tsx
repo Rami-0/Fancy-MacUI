@@ -3,7 +3,7 @@ import css from './PortfolioPage.module.css';
 import Contacts from '@/components/contacts/Contacts';
 // import {myProjects2} from '@/constants/Projects';
 // import Lottie_Main from '@/components/lottie/Lottie_Main';
-import Logo2 from '@/assets/img/Animation.gif';
+import Logo2 from '../../../public/assets/img/Animation.gif';
 import Image from "next/image";
 import Link from "next/link";
 import Cooperation from "@/components/cooperation/Cooperation";

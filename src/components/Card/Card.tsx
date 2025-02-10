@@ -2,9 +2,10 @@
 import React, {useState, useEffect} from 'react';
 import css from './Card.module.css';
 import VideoModel from '../VideoModel/VideoModel';
+import Image, {StaticImageData} from "next/image";
 
 interface CardProps {
-    img: string | string[];
+    img: string | (string | StaticImageData)[];
     title: string;
     description: string;
     link?: string;
@@ -12,9 +13,10 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({img, title, description, link, video}) => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState<string | StaticImageData>();
+
     useEffect(() => {
-        if (typeof img === 'object') {
+        if (Array.isArray(img)) {
             let i = img.length - 1;
             let j = 0;
             const intervalId = setInterval(() => {
@@ -32,19 +34,19 @@ const Card: React.FC<CardProps> = ({img, title, description, link, video}) => {
         }
     }, [img]);
 
-    const onClick = (event) => {
+    const onClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         event.preventDefault();
-
         if (video) {
             VideoModel({video: video});
         } else if (link) {
             window.open(link.toString()); // Open the link if there's no video
         }
     };
+
     return (
         <div className={css.wrapper} onClick={onClick}>
             <div className={css.imgWrapper}>
-                <img src={currentImageIndex} alt='post'/>
+                {currentImageIndex && <Image src={currentImageIndex} alt='post' />}
             </div>
             <div className={css.textWrapper}>
                 <h1>{title}</h1>

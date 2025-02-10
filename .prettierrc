@@ -1,0 +1,26 @@
+{
+  "singleQuote": true,
+  "semi": true,
+  "jsxSingleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "plugins": ["@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  "importOrder": [
+    "^@core/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@/app/(.*)$",
+    "^@/components/(.*)$",
+    "^@/screens/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/providers/(.*)$",
+    "^@/lib/(.*)$",
+    "^@/store/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

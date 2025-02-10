@@ -1,7 +1,6 @@
 import type {Metadata} from 'next'
 import {Suspense} from 'react'
 import './global.css'
-import './index.css'
 import localFont from 'next/font/local'
 
 const expoArabicBold = localFont({src: '../fonts/Expo Arabic/Expo Arabic Bold.ttf'});
@@ -18,7 +17,7 @@ export default function RootLayout({children}: Readonly<{ children: React.ReactN
     return (
         <html lang='en'>
         <body>
-        <Suspense fallback={<div className='w-screen h-screen flex items-center justify-center'>loading...</div>}>
+        <Suspense fallback={<div className=''>loading...</div>}>
             {children}
         </Suspense>
         </body>
