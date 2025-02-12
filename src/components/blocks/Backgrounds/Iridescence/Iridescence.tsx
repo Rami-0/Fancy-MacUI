@@ -6,7 +6,6 @@
 
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
-import { className } from 'postcss-selector-parser';
 
 const vertexShader = `
 attribute vec2 uv;
@@ -57,7 +56,6 @@ interface IridescenceProps {
   speed?: number;
   amplitude?: number;
   mouseReact?: boolean;
-  className?: string;
 }
 
 export default function Iridescence({

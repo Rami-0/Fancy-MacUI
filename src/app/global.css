@@ -4,15 +4,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Expo Arabic", "sans-serif";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Expo Arabic", "sans-serif";
 }
 
-html{
-    scroll-behavior: smooth;
+:root {
+  --color-primary: #fff;
+  --color-primary-foreground: #000;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #000;
+    --color-primary-foreground: #fff;
+    --main-orange: #ff7f50;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 /*::-webkit-scrollbar{*/
 /*	width: 5px;*/
 /*	padding: 3px 5px;*/
@@ -30,27 +44,30 @@ html{
 /*}*/
 
 @font-face {
-    font-family: "Expo Arabic";
-    src: local("Expo Arabic"),
-    url("../fonts/Expo Arabic/Expo Arabic Bold.ttf") format("truetype");
-    font-weight: bold;
+  font-family: "Expo Arabic";
+  src: local("Expo Arabic"),
+  url("../fonts/Expo Arabic/Expo Arabic Bold.ttf") format("truetype");
+  font-weight: bold;
 }
+
 @font-face {
-    font-family: "Expo Arabic";
-    src: local("Expo Arabic"),
-    url("../fonts/Expo Arabic/Expo Arabic Book.ttf") format("truetype");
-    font-weight: normal;
+  font-family: "Expo Arabic";
+  src: local("Expo Arabic"),
+  url("../fonts/Expo Arabic/Expo Arabic Book.ttf") format("truetype");
+  font-weight: normal;
 }
+
 @font-face {
-    font-family: "Expo Arabic";
-    src: local("Expo Arabic"),
-    url("../fonts/Expo Arabic/Expo Arabic Light.ttf") format("truetype");
-    font-weight: Light;
+  font-family: "Expo Arabic";
+  src: local("Expo Arabic"),
+  url("../fonts/Expo Arabic/Expo Arabic Light.ttf") format("truetype");
+  font-weight: Light;
 }
+
 @font-face {
-    font-family: "Expo Arabic";
-    src: local("Expo Arabic"),
-    url("../fonts/Expo Arabic/Expo Arabic Medium.ttf") format("truetype");
-    font-weight: Medium;
+  font-family: "Expo Arabic";
+  src: local("Expo Arabic"),
+  url("../fonts/Expo Arabic/Expo Arabic Medium.ttf") format("truetype");
+  font-weight: Medium;
 }
 
