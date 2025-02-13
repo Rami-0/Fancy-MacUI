@@ -10,17 +10,18 @@
   font-family: "Expo Arabic", "sans-serif";
 }
 
+/* Light mode (default) */
 :root {
   --color-primary: #fff;
   --color-primary-foreground: #000;
+  --main-orange: #ff7f50;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary: #000;
-    --color-primary-foreground: #fff;
-    --main-orange: #ff7f50;
-  }
+/* Dark mode (when user selects "dark" or system is dark) */
+.dark {
+  --color-primary: #000;
+  --color-primary-foreground: #fff;
+  --main-orange: #ff7f50;
 }
 
 html {

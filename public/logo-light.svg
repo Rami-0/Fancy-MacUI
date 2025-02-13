@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="201.1241 168.9046 619.1 346.9001" width="619.1px" height="346.9px" preserveAspectRatio="none"><defs><style>
+      .st0, .st1, .st2, .st3, .st4, .st5, .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13, .st14, .st15 {
+        fill: none;
+      }
+
+      .st16 {
+        fill: #f6cea7;
+      }
+
+      .st17 {
+        fill: #ab9c96;
+      }
+
+      .st18 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st19 {
+        fill: #f9dfbb;
+      }
+
+      .st20 {
+        fill: #e67e21;
+      }
+
+      .st1 {
+        stroke-width: 14.4px;
+      }
+
+      .st1, .st2, .st3, .st4, .st5, .st6 {
+        stroke: #eef1f1;
+      }
+
+      .st1, .st2, .st3, .st4, .st5, .st6, .st8, .st10, .st11, .st13, .st14, .st15 {
+        stroke-miterlimit: 10;
+      }
+
+      .st2 {
+        stroke-width: 10.1px;
+      }
+
+      .st3 {
+        stroke-width: 10px;
+      }
+
+      .st21 {
+        fill: #f28f47;
+      }
+
+      .st4 {
+        stroke-width: 7.2px;
+      }
+
+      .st5 {
+        stroke-width: 5.8px;
+      }
+
+      .st6 {
+        stroke-width: 5px;
+      }
+
+      .st22 {
+        fill: #f3a862;
+      }
+
+      .st23 {
+        fill: url(#linear-gradient);
+      }
+
+      .st24 {
+        fill: #f5c988;
+      }
+
+      .st7 {
+        stroke-width: 20px;
+      }
+
+      .st7, .st8, .st9, .st12, .st13 {
+        stroke: #ff4f21;
+      }
+
+      .st7, .st9, .st12 {
+        stroke-linejoin: round;
+      }
+
+      .st25 {
+        fill: #d3aa77;
+      }
+
+      .st26 {
+        fill: #703f2c;
+      }
+
+      .st27 {
+        clip-path: url(#clippath-3);
+      }
+
+      .st28 {
+        fill: #701f0d;
+      }
+
+      .st29 {
+        fill: #fff;
+      }
+
+      .st30 {
+        fill: #de793a;
+      }
+
+      .st8, .st10, .st12 {
+        stroke-width: 60px;
+      }
+
+      .st31 {
+        fill: #faeee0;
+      }
+
+      .st32 {
+        fill: #f1b887;
+      }
+
+      .st33 {
+        fill: #322625;
+      }
+
+      .st34 {
+        fill: #fefefe;
+      }
+
+      .st35 {
+        fill: #fcc15c;
+      }
+
+      .st36 {
+        fill: #3d130a;
+      }
+
+      .st37 {
+        fill: #7e6d68;
+      }
+
+      .st38 {
+        fill: #866552;
+      }
+
+      .st39 {
+        fill: #1c1414;
+      }
+
+      .st9 {
+        stroke-linecap: round;
+        stroke-width: 50px;
+      }
+
+      .st10, .st11, .st14, .st15 {
+        stroke: #000;
+      }
+
+      .st11, .st13 {
+        stroke-width: 30px;
+      }
+
+      .st12 {
+        stroke-linecap: square;
+      }
+
+      .st40 {
+        fill: #5e4d48;
+      }
+
+      .st41 {
+        display: none;
+      }
+
+      .st14 {
+        stroke-width: 4px;
+      }
+
+      .st15 {
+        stroke-width: 3.9px;
+      }
+
+      .st42 {
+        fill: #6d5c58;
+      }
+    </style></defs><g id="object-10" transform="matrix(0.9999999999999999, 0, 0, 0.9999999999999999, -4.032919883728013, 9.509624481201174)"><polyline class="st13" points="264.657 327.495 525.157 327.495 793.357 347.695" id="object-0"/><path class="st10" d="M 267.757 406.095 L 285.657 254.895 C 289.457 222.495 306.857 195.995 337.757 185.495 C 368.657 174.995 417.857 186.495 417.557 242.595 C 417.057 334.495 289.857 311.495 289.857 311.495 C 289.857 311.495 225.857 310.895 205.157 288.495" id="object-1" style="stroke: rgb(255, 255, 255);"/><path class="st10" d="M 621.557 251.695 C 621.557 251.695 605.257 390.795 526.157 392.595 C 493.657 393.295 466.157 368.195 462.657 338.695 C 459.157 309.195 474.657 271.795 524.057 269.495 C 562.657 267.695 607.857 303.995 606.557 419.595" id="object-2" style="stroke: rgb(255, 255, 255);"/><path class="st10" d="M 346.757 311.995 C 346.757 311.995 354.757 382.495 429.557 389.595" id="object-3" style="stroke: rgb(255, 255, 255);"/><path class="st10" d="M 782.257 242.995 C 781.457 258.995 767.657 312.095 765.157 337.395 C 764.857 340.095 764.557 342.695 764.157 345.395 C 758.557 386.295 791.157 407.195 791.157 407.195" id="object-4" style="stroke: rgb(255, 255, 255);"/><path class="st10" d="M 686.057 240.895 C 686.057 257.795 695.857 317.695 693.557 362.995 C 691.257 408.295 645.457 506.295 645.457 506.295" id="object-5" style="stroke: rgb(255, 255, 255);"/><circle cx="687.957" cy="191.795" r="32.4" id="object-6" style="fill: rgb(255, 255, 255);"/><circle cx="791.857" cy="191.795" r="32.4" id="object-7" style="fill: rgb(255, 255, 255);"/><polyline class="st13" points="802.257 317.695 525.257 327.495 507.957 327.495" id="object-8"/><path class="st29" d="M 579.357 256.795 C 579.357 256.795 586.357 260.695 590.657 268.895 C 591.557 270.695 591.657 263.895 584.257 259.495" id="object-9"/></g></svg>

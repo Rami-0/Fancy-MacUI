@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  darkMode: 'class',
+  darkMode: "selector",
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -29,7 +29,7 @@ const config: Config = {
         DEFAULT: 'var(--color-primary)',
         foreground: 'var(--color-primary-foreground)',
       },
-
+      mainOrange: 'var(--main-orange)',
     }
   },
   plugins: [],
