@@ -1,6 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
-import Container from '@/components/ui/container';
 import { useTheme } from '@/context/ThemeContext';
 
 const Header: React.FC = () => {
@@ -9,24 +7,17 @@ const Header: React.FC = () => {
   return (
     <header className="w-full fixed top-0 left-0 z-50">
       <div className="w-screen bg-primary h-2.5"></div>
-      <Container>
+      <main>
         <div
           datatype={'logobox'}
-          className={'relative w-fit bg-primary flex items-center justify-between pr-4 mr-3 h-20 rounded-br-[30px]'}
+          className={'relative w-fit bg-primary flex items-center justify-between px-2.5 mr-3 h-20 rounded-br-[30px]'}
         >
           <span>
-            <h1 className="text-4xl font-bold text-white">Rami</h1>
+            <h1 className="font-kings text-4xl font-bold text-white">Rami</h1>
           </span>
           <CornerDecorations />
         </div>
-        <nav className="bg-[#66CCFF]  rounded-full px-4 py-2 flex gap-4">
-          <a href="#">Projects</a>
-          <a href="#">About</a>
-          <a href="#">Blog</a>
-          <a href="#">Contact</a>
-          <span>🌙</span>
-        </nav>
-      </Container>
+      </main>
     </header>
   );
 };

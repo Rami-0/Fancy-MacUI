@@ -1,13 +1,20 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import './global.css';
-import localFont from 'next/font/local';
 import { ThemeProvider } from '@/context/ThemeContext';
+import { Kings } from 'next/font/google';
+import { Raleway } from 'next/font/google';
 
-const expoArabicBold = localFont({ src: '../fonts/Expo Arabic/Expo Arabic Bold.ttf' });
-const expoArabicBook = localFont({ src: '../fonts/Expo Arabic/Expo Arabic Book.ttf' });
-const expoArabicLight = localFont({ src: '../fonts/Expo Arabic/Expo Arabic Light.ttf' });
-const expoArabicMedium = localFont({ src: '../fonts/Expo Arabic/Expo Arabic Medium.ttf' });
+const raleway = Raleway({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-raleway',
+});
+const kings = Kings({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-kings',
+});
 
 export const metadata: Metadata = {
   title: 'Rami',
@@ -17,8 +24,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-    <body className={'bg-primary text-primary-foreground h-screen'}>
-    <Suspense fallback={<div className="">loading...</div>}>
+    <body className={`${kings.variable} ${raleway.variable} bg-primary text-primary-foreground h-screen`}>
+    <Suspense
+      fallback={<div className="">loading...</div>}>
       <ThemeProvider>
         {children}
       </ThemeProvider>
