@@ -1,7 +1,5 @@
 import React from 'react';
-import Iridescence from '@/components/blocks/Backgrounds/Iridescence/Iridescence';
 import Container from '@/components/ui/container';
-import Aurora from '@/components/blocks/Backgrounds/Aurora/Aurora';
 
 const HeroSection: React.FC = () => {
   return (
