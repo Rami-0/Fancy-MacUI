@@ -6,14 +6,14 @@ import HeroSection from '@/components/ui/hero-section';
 import Container from '@/components/ui/container';
 import SplashCursor from '@/components/blocks/Animations/SplashCursor/SplashCursor';
 import Dock from '@/components/blocks/Components/Dock/Dock';
-import { VscAccount, VscArchive, VscHome, VscSettingsGear } from 'react-icons/vsc';
+import { VscAccount, VscHome, VscFileCode, VscSettingsGear } from 'react-icons/vsc';
 
 export default function Home() {
   const { handleThemeChange } = useTheme();
 
   const items = [
     { icon: <VscHome size={18} />, label: 'Home', onClick: () => alert('Home!') },
-    { icon: <VscArchive size={18} />, label: 'Archive', onClick: () => alert('Archive!') },
+    { icon: <VscFileCode size={18} />, label: 'Projects', onClick: () => alert('Projects!') },
     { icon: <VscAccount size={18} />, label: 'Profile', onClick: () => alert('Profile!') },
     { icon: <VscSettingsGear size={18} />, label: 'Settings', onClick: () => alert('Settings!') },
   ];
