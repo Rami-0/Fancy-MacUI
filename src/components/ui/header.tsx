@@ -1,5 +1,8 @@
 import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
+import logo_dark from '@/assets/Dark.png';
+import logo_light from '@/assets/Light.png';
+import Image from 'next/image';
 
 const Header: React.FC = () => {
   const { isDark } = useTheme();
@@ -13,7 +16,9 @@ const Header: React.FC = () => {
           className={'relative w-fit bg-primary flex items-center justify-between px-2.5 mr-3 h-20 rounded-br-[30px]'}
         >
           <span>
-            <h1 className="font-kings text-4xl font-bold text-white">Rami</h1>
+            <h1 className="font-kings text-4xl font-bold text-white">
+            <Image src={isDark ? logo_dark : logo_light} alt={'logo'} width={50} />
+            </h1>
           </span>
           <CornerDecorations />
         </div>
