@@ -13,6 +13,7 @@
   --color-primary: #fff;
   --color-primary-foreground: #000;
   --main-orange: #ff7f50;
+  --color-secondary: #f3f4f6;
 }
 
 /* Dark mode (when user selects "dark" or system is dark) */
@@ -20,6 +21,7 @@
   --color-primary: #000;
   --color-primary-foreground: #fff;
   --main-orange: #ff7f50;
+  --color-secondary: #252321;
 }
 
 html {

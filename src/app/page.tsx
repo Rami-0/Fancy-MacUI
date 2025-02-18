@@ -19,10 +19,16 @@ export default function Home() {
   ];
 
   return (
-    <main className={'h-screen w-screen overflow-hidden'}>
+    <main className={'rounded-lg overflow-hidden w-full h-full relative'}>
       <SplashCursor />
       <Header />
       <HeroSection />
+      <Dock
+        items={items}
+        panelHeight={30}
+        baseItemSize={50}
+        magnification={70}
+      />
       {/*<Container>*/}
       {/*  <div>*/}
       {/*    <button className="m-2 p-2 border" onClick={() => handleThemeChange('light')}>*/}
@@ -37,13 +43,6 @@ export default function Home() {
       {/*  </div>*/}
       {/*</Container>*/}
 
-
-      <Dock
-        items={items}
-        panelHeight={30}
-        baseItemSize={50}
-        magnification={70}
-      />
     </main>
   );
 }
