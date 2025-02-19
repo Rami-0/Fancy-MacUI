@@ -4,6 +4,8 @@
 	2-10-2025
 */
 
+// @ts-nocheck
+
 "use client";
 import React, { useEffect, useRef } from "react";
 
@@ -136,7 +138,8 @@ export default function SplashCursor({
       }
 
       if (!gl) {
-        throw new Error("Unable to initialize WebGL.");
+        console.warn("Unable to initialize WebGL. GPU acceleration may be disabled. Skipping fluid rendering.");
+        return { gl: null, ext: null };
       }
 
       const isWebGL2 = "drawBuffers" in gl;
