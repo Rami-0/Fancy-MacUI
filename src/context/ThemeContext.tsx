@@ -4,7 +4,9 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 interface ThemeContextProps {
   activeTheme: string;
   isDark: boolean;
+  animationsEnabled: boolean;
   handleThemeChange: (newTheme: string) => void;
+  toggleAnimations: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
@@ -12,9 +14,13 @@ const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [activeTheme, setActiveTheme] = useState<string>('system');
   const [isDark, setIsDark] = useState<boolean>(false);
+  const [animationsEnabled, setAnimationsEnabled] = useState<boolean>(true);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
+    const savedAnimations = localStorage.getItem('animationsEnabled');
+
+    setAnimationsEnabled(savedAnimations === 'false' ? false : true);
 
     if (!savedTheme || savedTheme === 'system') {
       setActiveTheme('system');
@@ -59,8 +65,14 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     document.documentElement.classList.toggle('dark', systemPrefersDark);
   };
 
+  const toggleAnimations = () => {
+    const newValue = !animationsEnabled;
+    setAnimationsEnabled(newValue);
+    localStorage.setItem('animationsEnabled', String(newValue));
+  };
+
   return (
-    <ThemeContext.Provider value={{ activeTheme, isDark, handleThemeChange }}>
+    <ThemeContext.Provider value={{ activeTheme, isDark, animationsEnabled, handleThemeChange, toggleAnimations }}>
       {children}
     </ThemeContext.Provider>
   );

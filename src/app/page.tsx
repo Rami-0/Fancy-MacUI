@@ -7,20 +7,21 @@ import Container from '@/components/ui/container';
 import SplashCursor from '@/components/blocks/Animations/SplashCursor/SplashCursor';
 import Dock from '@/components/blocks/Components/Dock/Dock';
 import { VscAccount, VscHome, VscFileCode, VscSettingsGear } from 'react-icons/vsc';
+import { SettingsPopover } from '@/components/setting-popover/SettingsPopover';
 
 export default function Home() {
-  const { handleThemeChange } = useTheme();
+  const { animationsEnabled } = useTheme();
 
   const items = [
     { icon: <VscHome size={18} />, label: 'Home', onClick: () => alert('Home!') },
     { icon: <VscFileCode size={18} />, label: 'Projects', onClick: () => alert('Projects!') },
     { icon: <VscAccount size={18} />, label: 'Profile', onClick: () => alert('Profile!') },
-    { icon: <VscSettingsGear size={18} />, label: 'Settings', onClick: () => alert('Settings!') },
+    { icon: <SettingsPopover />, label: 'Settings' },
   ];
 
   return (
     <main className={'rounded-lg overflow-hidden w-full h-full relative'}>
-      <SplashCursor />
+      {animationsEnabled && <SplashCursor />}
       <Header />
       <HeroSection />
       <Dock
@@ -29,19 +30,6 @@ export default function Home() {
         baseItemSize={50}
         magnification={70}
       />
-      {/*<Container>*/}
-      {/*  <div>*/}
-      {/*    <button className="m-2 p-2 border" onClick={() => handleThemeChange('light')}>*/}
-      {/*      Light*/}
-      {/*    </button>*/}
-      {/*    <button className="m-2 p-2 border" onClick={() => handleThemeChange('dark')}>*/}
-      {/*      Dark*/}
-      {/*    </button>*/}
-      {/*    <button className="m-2 p-2 border" onClick={() => handleThemeChange('system')}>*/}
-      {/*      System*/}
-      {/*    </button>*/}
-      {/*  </div>*/}
-      {/*</Container>*/}
 
     </main>
   );

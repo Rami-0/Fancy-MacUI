@@ -33,7 +33,7 @@ const CornerDecorations: React.FC = () => {
       <svg className="absolute bottom-[-30px] left-0" width="30" height="30" viewBox="0 0 30 30" fill="none"
            xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip0_310_2)">
-          <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z" fill="var(--color-secondary)"></path>
+          <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z" fill="var(--secondary)"></path>
         </g>
         <defs>
           <clipPath id="clip0_310_2">
@@ -44,7 +44,7 @@ const CornerDecorations: React.FC = () => {
       <svg className="absolute right-[-30px] top-0" width="30" height="30" viewBox="0 0 30 30" fill="none"
            xmlns="http://www.w3.org/2000/svg">
         <g clipPath="url(#clip0_310_2)">
-          <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z" fill="var(--color-secondary)"></path>
+          <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z" fill="var(--secondary)"></path>
         </g>
         <defs>
           <clipPath id="clip0_310_2">
