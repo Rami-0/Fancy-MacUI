@@ -26,12 +26,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
     <body
       className={`${kings.variable} ${raleway.variable} bg-secondary text-primary-foreground h-screen w-screen p-2 `}>
-    <Suspense
-      fallback={<div className="">loading...</div>}>
-      <ThemeProvider>
-        {children}
-      </ThemeProvider>
-    </Suspense>
+    {/*<Suspense*/}
+    {/*  fallback={<div className="">loading...</div>}>*/}
+    <ThemeProvider>
+      {children}
+    </ThemeProvider>
+    {/*</Suspense>*/}
     <script
       dangerouslySetInnerHTML={{
         __html: `

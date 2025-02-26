@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import Header from '@/components/ui/header';
@@ -8,6 +9,7 @@ import SplashCursor from '@/components/blocks/Animations/SplashCursor/SplashCurs
 import Dock from '@/components/blocks/Components/Dock/Dock';
 import { VscAccount, VscHome, VscFileCode, VscSettingsGear } from 'react-icons/vsc';
 import { SettingsPopover } from '@/components/setting-popover/SettingsPopover';
+import { MacDialogDemo } from '@/components/mac-dialog-demo/MacDialogDemo';
 
 export default function Home() {
   const { animationsEnabled } = useTheme();
