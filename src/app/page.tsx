@@ -9,14 +9,14 @@ import SplashCursor from '@/components/blocks/Animations/SplashCursor/SplashCurs
 import Dock from '@/components/blocks/Components/Dock/Dock';
 import { VscAccount, VscHome, VscFileCode, VscSettingsGear } from 'react-icons/vsc';
 import { SettingsPopover } from '@/components/setting-popover/SettingsPopover';
-import { MacDialogDemo } from '@/components/mac-dialog-demo/MacDialogDemo';
+import { MacFinderDemo } from '@/components/mac-dialog-demo/MacDialogDemo';
 
 export default function Home() {
   const { animationsEnabled } = useTheme();
 
   const items = [
     { icon: <VscHome size={18} />, label: 'Home', onClick: () => alert('Home!') },
-    { icon: <VscFileCode size={18} />, label: 'Projects', onClick: () => alert('Projects!') },
+    { icon: <MacFinderDemo />, label: 'Projects' },
     { icon: <VscAccount size={18} />, label: 'Profile', onClick: () => alert('Profile!') },
     { icon: <SettingsPopover />, label: 'Settings' },
   ];

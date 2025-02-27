@@ -41,7 +41,7 @@ export const MacDialog = React.forwardRef<
      initialPosition = { x: 0, y: 0 },
      initialSize = { width: 600, height: 400 },
      minWidth = 300,
-     minHeight = 200,
+     minHeight = 300,
      title,
      description,
      className,
@@ -203,7 +203,7 @@ export const MacDialog = React.forwardRef<
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
-        'fixed inset-0 z-50 bg-black/50 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+        'fixed inset-0 z-50 bg-white/50 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
         className,
       )}
       {...props}
@@ -267,10 +267,11 @@ export const MacDialog = React.forwardRef<
   };
 
   return (
+    // @ts-ignore
     <Dialog {...props} ref={ref}>
       {triggerElement}
       <DialogPortal>
-        <MacDialogOverlay />
+        {/*<MacDialogOverlay />*/}
         <DialogPrimitive.Content
           ref={dialogRef}
           style={{
@@ -292,7 +293,7 @@ export const MacDialog = React.forwardRef<
           {/* Mac-style title bar */}
           <div
             className={cn(
-              'flex items-center px-4 py-2 bg-gray-100 dark:bg-gray-800 border-b',
+              'flex items-center px-4 py-2 bg-primary border-b',
               isDragging ? 'cursor-grabbing' : 'cursor-grab',
             )}
             onMouseDown={handleDragStart}
@@ -327,7 +328,7 @@ export const MacDialog = React.forwardRef<
           </div>
 
           {/* Dialog content */}
-          <div className={cn('flex-1 p-4 overflow-auto', contentClassName)}>
+          <div className={cn('flex-1 overflow-auto', contentClassName)}>
             {description && (
               <p className="text-sm text-muted-foreground mb-4">{description}</p>
             )}

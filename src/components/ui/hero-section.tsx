@@ -3,15 +3,13 @@
 import React from 'react';
 import Container from '@/components/ui/container';
 import Clock from '@/components/clock/Clock';
-import { MacDialogDemo } from '@/components/mac-dialog-demo/MacDialogDemo';
+import { MacFinderDemo } from '@/components/mac-dialog-demo/MacDialogDemo';
 
 const HeroSection: React.FC = () => {
   return (
     <section className={'w-full h-full bg-primary'}>
       <Container className={'flex justify-center items-center'}>
-        <MacDialogDemo />
         <Clock />
-
         {/*<div className="w-full h-full pb-24 grid grid-cols-3 grid-rows-3 place-items-stretch relative items-end justify-end">*/}
         {/*  <span className="grid place-content-center h-full text-6xl z-10 font-bold text-white">1</span>*/}
         {/*  <span className="grid place-content-center h-full text-6xl z-10 font-bold text-white">2</span>*/}
