@@ -214,14 +214,14 @@ export const MacDialog = React.forwardRef<
   // Handle closing and minimizing
   const handleMinimize = () => {
     // For demo purposes, we'll just shrink the dialog
-    setSize(prev => ({ ...prev, height: minHeight }));
+    // setSize(prev => ({ ...prev, height: minHeight }));
   };
 
   const handleMaximize = () => {
     // Toggle between current size and full viewport size
-    if (size.width < window.innerWidth - 100 || size.height < window.innerHeight - 100) {
-      setSize({ width: window.innerWidth - 100, height: window.innerHeight - 100 });
-      setPosition({ x: 50, y: 50 });
+    if (size.width < window.innerWidth - 50 || size.height < window.innerHeight - 50) {
+      setSize({ width: window.innerWidth - 50, height: window.innerHeight - 50 });
+      setPosition({ x: 25, y: 25 });
     } else {
       setSize(initialSize);
       setPosition(initialPosition);
@@ -305,7 +305,7 @@ export const MacDialog = React.forwardRef<
                 <X className="h-2 w-2 text-red-800 opacity-0 hover:opacity-100" />
               </DialogPrimitive.Close>
               <button
-                className="rounded-full bg-yellow-500 hover:bg-yellow-600 w-3 h-3 flex items-center justify-center"
+                className="rounded-full bg-yellow-900 w-3 h-3 flex items-center justify-center"
                 onClick={handleMinimize}
               >
                 <Minus className="h-2 w-2 text-yellow-800 opacity-0 hover:opacity-100" />

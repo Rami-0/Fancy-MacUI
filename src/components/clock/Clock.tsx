@@ -20,7 +20,7 @@ const Clock = () => {
   };
 
   return (
-    <div className="text-center text-primary-foreground font-bold select-none">
+    <div className="z-[99] text-center text-primary-foreground font-bold select-none">
       <div className="mb-2 text-xl opacity-80">{formatDate(time)}</div>
       <div className="text-8xl font-black">{formatTime(time)}</div>
     </div>
