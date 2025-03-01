@@ -38,7 +38,7 @@ export const MacDialog = React.forwardRef<
   onSizeChange?: (size: Size) => void
 }
 >(({
-     initialPosition = { x: 0, y: 0 },
+     initialPosition = { x: 10, y: 10 },
      initialSize = { width: 600, height: 400 },
      minWidth = 300,
      minHeight = 300,
