@@ -61,19 +61,16 @@ export default function InfoComponent() {
           </div>
 
           <div className="flex gap-4 mt-6">
-            <a href="#" className="text-blue-400 hover:text-blue-300">
+            <a target={'_blank'} href="https://www.linkedin.com/in/rami-alshalabi-920873169" className="text-blue-400 hover:text-blue-300">
               <FaLinkedin size={24} />
             </a>
-            <a href="#" className="text-blue-400 hover:text-blue-300">
+            <a target={'_blank'} href="https://t.me/u88s8" className="text-blue-400 hover:text-blue-300">
               <FaTelegram size={24} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-gray-300">
+            <a target={'_blank'} href="https://github.com/rami-0/" className="text-gray-400 hover:text-gray-300">
               <VscGithub size={24} />
             </a>
-            <a href="#" className="text-blue-400 hover:text-blue-300">
-              <VscTwitter size={24} />
-            </a>
-            <a href="#" className="text-red-400 hover:text-red-300">
+            <a target={'_blank'} href="mailto:ramipro.ac@gmail.com" className="text-red-400 hover:text-red-300">
               <VscMail size={24} />
             </a>
           </div>
@@ -90,7 +87,7 @@ export default function InfoComponent() {
 
           {/* Footer */}
           <div className="text-xs text-gray-500 text-center mt-6">
-            <p>© 2025 John Doe</p>
+            <p>© 2025 Rami Alshalabi</p>
             <p>Available for exciting projects</p>
           </div>
         </div>
