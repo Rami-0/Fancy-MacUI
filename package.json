@@ -19,6 +19,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
+    "gsap": "^3.12.7",
     "lucide-react": "^0.475.0",
     "next": "^14.2.23",
     "ogl": "^1.0.11",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/gsap": "^1.20.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-anchor-link-smooth-scroll": "^1.0.5",
