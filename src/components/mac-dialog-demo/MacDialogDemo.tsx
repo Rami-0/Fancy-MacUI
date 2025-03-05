@@ -66,19 +66,15 @@ export function MacFinderDemo() {
     },
     mobileApp: {
       name: 'Mobile Application',
-      description: 'Fitness tracking app with social features and workout plans',
-      status: 'Planning',
-      startDate: '2025-03-10',
-      dueDate: '2025-07-15',
-      completion: 20,
-      team: ['Jordan Taylor', 'Priya Patel', 'Liam Johnson'],
-      technologies: ['React Native', 'Firebase', 'Redux', 'Google Fit API'],
+      description: 'Call Scheduler for IOS',
+      status: 'In Review',
+      startDate: '2025-03-05',
+      dueDate: 'Open',
+      completion: 80,
+      team: ['Rami'],
+      technologies: ['React Native', 'Expo 53 SDK', 'Notification API'],
       files: [
-        { name: 'UI Concepts', type: 'folder' },
-        { name: 'State Management', type: 'folder' },
-        { name: 'app-wireframes.pdf', type: 'file' },
-        { name: 'feature-roadmap.docx', type: 'file' },
-        { name: 'user-journey.pages', type: 'file' },
+        { name: 'UI Concepts', type: 'file' },
       ],
     },
     aiModel: {
@@ -173,7 +169,7 @@ export function MacFinderDemo() {
       return (
         <svg className="w-5 h-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
-                clipRule="evenodd" />
+            clipRule="evenodd" />
         </svg>
       );
     } else if (type === 'file') {
@@ -185,8 +181,8 @@ export function MacFinderDemo() {
       return (
         <svg className={`w-5 h-5 ${iconColor}`} viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd"
-                d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
-                clipRule="evenodd" />
+            d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
+            clipRule="evenodd" />
         </svg>
       );
     } else if (type === 'header') {
@@ -198,24 +194,24 @@ export function MacFinderDemo() {
           return (
             <svg className="w-5 h-5 text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd"
-                    d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
-                    clipRule="evenodd" />
+                d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
+                clipRule="evenodd" />
             </svg>
           );
         case 'mobile':
           return (
             <svg className="w-5 h-5 text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd"
-                    d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z"
-                    clipRule="evenodd" />
+                d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z"
+                clipRule="evenodd" />
             </svg>
           );
         case 'ai':
           return (
             <svg className="w-5 h-5 text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd"
-                    d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clipRule="evenodd" />
+                d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clipRule="evenodd" />
             </svg>
           );
         case 'analytics':
@@ -229,8 +225,8 @@ export function MacFinderDemo() {
           return (
             <svg className="w-5 h-5 text-primary-foreground" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd"
-                    d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
-                    clipRule="evenodd" />
+                d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zm1 14a1 1 0 100-2 1 1 0 000 2zm5-1.757l4.9-4.9a2 2 0 000-2.828L13.485 5.1a2 2 0 00-2.828 0L10 5.757v8.486zM16 18H9.071l6-6H16a2 2 0 012 2v2a2 2 0 01-2 2z"
+                clipRule="evenodd" />
             </svg>
           );
         default:
@@ -298,15 +294,15 @@ export function MacFinderDemo() {
               <button className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300">
                 <svg className="w-4 h-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd"
-                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                        clipRule="evenodd" />
+                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                    clipRule="evenodd" />
                 </svg>
               </button>
               <button className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300">
                 <svg className="w-4 h-4 text-gray-600" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clipRule="evenodd" />
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clipRule="evenodd" />
                 </svg>
               </button>
             </div>
@@ -315,8 +311,8 @@ export function MacFinderDemo() {
               <button className="p-1 rounded hover:bg-mainOrange">
                 <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clipRule="evenodd" />
+                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                    clipRule="evenodd" />
                 </svg>
               </button>
             </div>
@@ -360,7 +356,7 @@ export function MacFinderDemo() {
                       <p className="text-primary-foreground/20 mt-1">{projects[activeProject].description}</p>
                     </div>
                     <div
-                      className={`${getStatusColor(projects[activeProject].status)} text-white px-3 py-1 rounded-full text-sm`}>
+                      className={`${getStatusColor(projects[activeProject].status)} w-fit text-white px-6 py-1 rounded-full text-sm whitespace-nowrap`}>
                       {projects[activeProject].status}
                     </div>
                   </div>
@@ -385,7 +381,7 @@ export function MacFinderDemo() {
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2">
                           <div className={`${getCompletionColor(projects[activeProject].completion)} h-2 rounded-full`}
-                               style={{ width: `${projects[activeProject].completion}%` }}></div>
+                            style={{ width: `${projects[activeProject].completion}%` }}></div>
                         </div>
                       </div>
                     </div>
@@ -427,8 +423,8 @@ export function MacFinderDemo() {
                           {file.type === 'folder' && (
                             <svg className="w-4 h-4 ml-auto text-gray-500" viewBox="0 0 20 20" fill="currentColor">
                               <path fillRule="evenodd"
-                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                    clipRule="evenodd" />
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clipRule="evenodd" />
                             </svg>
                           )}
                         </div>
