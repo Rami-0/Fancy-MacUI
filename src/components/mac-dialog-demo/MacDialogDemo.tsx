@@ -39,9 +39,12 @@ interface SidebarItem {
   color?: string;
 }
 
+interface ComponentProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
 
-export function MacFinderDemo() {
-  const [open, setOpen] = React.useState(false);
+export function MacFinderDemo({ open, onOpenChange }: ComponentProps) {
   const [activeProject, setActiveProject] = React.useState('webApp');
 
   // Project data
@@ -274,13 +277,12 @@ export function MacFinderDemo() {
       title="Project Manager"
       className="z-[1000]"
       open={open}
-      onOpenChange={setOpen}
+      onOpenChange={onOpenChange}
     >
       <MacDialogTrigger asChild>
         <Button
           variant="none"
           className="flex gap-2 items-center"
-          onClick={() => setOpen(true)}
         >
           <VscFileCode size={18} />
         </Button>

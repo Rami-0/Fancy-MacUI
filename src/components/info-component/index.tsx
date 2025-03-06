@@ -8,8 +8,12 @@ import {
 import { VscAccount, VscGithub, VscMail, VscTwitter } from 'react-icons/vsc';
 import { FaLinkedin, FaTelegram } from 'react-icons/fa';
 
-export default function InfoComponent() {
-  const [open, setOpen] = React.useState(false);
+interface ComponentProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+export default function InfoComponent({ open, onOpenChange }: ComponentProps) {
 
   return (
     <MacDialog
@@ -18,7 +22,7 @@ export default function InfoComponent() {
       title="About Me"
       className="z-[1000]"
       open={open}
-      onOpenChange={setOpen}
+      onOpenChange={onOpenChange}
     >
       <MacDialogTrigger asChild>
         <VscAccount size={18} />

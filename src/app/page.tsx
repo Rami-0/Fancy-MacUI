@@ -6,15 +6,20 @@ import Header from '@/components/ui/header';
 import HeroSection from '@/components/ui/hero-section';
 import SplashCursor from '@/components/blocks/Animations/SplashCursor/SplashCursor';
 import Dock from '@/components/blocks/Components/Dock/Dock';
-import { VscHome, VscFileCode, VscSettingsGear } from 'react-icons/vsc';
+import { VscHome, VscFileCode, VscSettingsGear, VscAccount } from 'react-icons/vsc';
 import { SettingsPopover } from '@/components/setting-popover/SettingsPopover';
 import { MacFinderDemo } from '@/components/mac-dialog-demo/MacDialogDemo';
 import InfoComponent from '@/components/info-component';
 import Preloader from '@/components/preloader/Preloader';
+import Container from '@/components/ui/container';
 
 export default function Home() {
   const { animationsEnabled } = useTheme();
   const [loading, setLoading] = useState(true);
+  const [isHomeOpen, setIsHomeOpen] = useState(false);
+  const [isProjectsOpen, setIsProjectsOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   useEffect(() => {
     // Simulate loading delay - replace with actual loading check if needed
@@ -23,12 +28,40 @@ export default function Home() {
     }, 2000); // Adjust delay as needed
   }, []);
 
+  const openHome = () => {
+    setIsHomeOpen(true);
+    setIsProjectsOpen(false);
+    setIsProfileOpen(false);
+    setIsSettingsOpen(false);
+  };
+
+  const openProjects = () => {
+    setIsHomeOpen(false);
+    setIsProjectsOpen(true);
+    setIsProfileOpen(false);
+    setIsSettingsOpen(false);
+  };
+
+  const openProfile = () => {
+    setIsHomeOpen(false);
+    setIsProjectsOpen(false);
+    setIsProfileOpen(true);
+    setIsSettingsOpen(false);
+  };
+
+  const openSettings = () => {
+    setIsHomeOpen(false);
+    setIsProjectsOpen(false);
+    setIsProfileOpen(false);
+    setIsSettingsOpen(true);
+  };
+
 
   const items = [
-    { icon: <VscHome size={18} />, label: 'Home' },
-    { icon: <MacFinderDemo />, label: 'Projects' },
-    { icon: <InfoComponent />, label: 'Profile' },
-    { icon: <SettingsPopover />, label: 'Settings' },
+    { icon: <VscHome size={18} />, label: 'Home', onClick: openHome },
+    { icon: <VscFileCode size={18} />, label: 'Projects', onClick: openProjects },
+    { icon: <VscAccount size={18} />, label: 'Profile', onClick: openProfile },
+    { icon: <VscSettingsGear size={18} />, label: 'Settings', onClick: openSettings },
   ];
 
   return (
@@ -46,7 +79,10 @@ export default function Home() {
             baseItemSize={50}
             magnification={70}
           />
-
+          {isHomeOpen && <Container className=""><p>Home Content</p></Container>}
+          {isProjectsOpen && <MacFinderDemo open={isProjectsOpen} onOpenChange={setIsProjectsOpen} />}
+          {isProfileOpen && <InfoComponent open={isProfileOpen} onOpenChange={setIsProfileOpen} />}
+          {isSettingsOpen && <SettingsPopover open={isSettingsOpen} onOpenChange={setIsSettingsOpen} />}
         </main>
       }
     </>

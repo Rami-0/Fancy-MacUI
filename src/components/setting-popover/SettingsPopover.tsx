@@ -1,25 +1,40 @@
 import React from 'react';
 import { VscSettingsGear } from 'react-icons/vsc';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import {
+  MacDialog,
+  MacDialogTrigger,
+  MacDialogContent,
+} from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { useTheme } from '@/context/ThemeContext';
 import { Label } from '@/components/ui/label';
 
-export function SettingsPopover() {
+interface ComponentProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+export function SettingsPopover({ open, onOpenChange }: ComponentProps) {
   const { handleThemeChange, activeTheme, animationsEnabled, toggleAnimations } = useTheme();
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
+    <MacDialog
+      initialPosition={{ x: 800, y: 50 }}
+      initialSize={{ width: 350, height: 300 }}
+      title="Settings"
+      className="z-[1000]"
+      open={open}
+      onOpenChange={onOpenChange}
+    >
+      <MacDialogTrigger asChild>
         <div className="p-3 rounded-lg cursor-pointer">
           <VscSettingsGear size={18} />
         </div>
-      </PopoverTrigger>
-      <PopoverContent className="w-80" sideOffset={20}>
+      </MacDialogTrigger>
+      <MacDialogContent className="w-80 p-6">
         <div className="grid gap-4">
           <div className="space-y-2">
-            <h4 className="font-medium leading-none">Settings</h4>
             <p className="text-sm text-muted-foreground">
               Adjust your preferences below.
             </p>
@@ -60,7 +75,7 @@ export function SettingsPopover() {
             <Label htmlFor="animation-switcher">Enable Animations</Label>
           </div>
         </div>
-      </PopoverContent>
-    </Popover>
+      </MacDialogContent>
+    </MacDialog>
   );
 }
