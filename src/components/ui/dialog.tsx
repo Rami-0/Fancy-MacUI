@@ -26,31 +26,31 @@ interface Size {
 export const MacDialog = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root> & {
-  initialPosition?: Position
-  initialSize?: Size
-  minWidth?: number
-  minHeight?: number
-  title?: React.ReactNode
-  description?: React.ReactNode
-  className?: string
-  contentClassName?: string
-  onPositionChange?: (position: Position) => void
-  onSizeChange?: (size: Size) => void
-}
+    initialPosition?: Position
+    initialSize?: Size
+    minWidth?: number
+    minHeight?: number
+    title?: React.ReactNode
+    description?: React.ReactNode
+    className?: string
+    contentClassName?: string
+    onPositionChange?: (position: Position) => void
+    onSizeChange?: (size: Size) => void
+  }
 >(({
-     initialPosition = { x: 10, y: 10 },
-     initialSize = { width: 600, height: 400 },
-     minWidth = 300,
-     minHeight = 300,
-     title,
-     description,
-     className,
-     contentClassName,
-     children,
-     onPositionChange,
-     onSizeChange,
-     ...props
-   }, ref) => {
+  initialPosition = { x: 10, y: 10 },
+  initialSize = { width: 600, height: 400 },
+  minWidth = 300,
+  minHeight = 300,
+  title,
+  description,
+  className,
+  contentClassName,
+  children,
+  onPositionChange,
+  onSizeChange,
+  ...props
+}, ref) => {
   // State for position and size
   const [position, setPosition] = React.useState<Position>(initialPosition);
   const [size, setSize] = React.useState<Size>(initialSize);
@@ -203,7 +203,7 @@ export const MacDialog = React.forwardRef<
     <DialogPrimitive.Overlay
       ref={ref}
       className={cn(
-        'fixed inset-0 z-50 bg-white/50 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+        'fixed pointer-events-none inset-0 z-50 bg-white/50 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
         className,
       )}
       {...props}
@@ -267,8 +267,8 @@ export const MacDialog = React.forwardRef<
   };
 
   return (
-    // @ts-ignore
-    <Dialog {...props} ref={ref}>
+    //@ts-ignore
+    <Dialog {...props} ref={ref} modal={false}>
       {triggerElement}
       <DialogPortal>
         {/*<MacDialogOverlay />*/}
@@ -289,6 +289,12 @@ export const MacDialog = React.forwardRef<
             className,
           )}
           onPointerDownCapture={e => e.stopPropagation()}
+          // Remove onPointerDownOutside handler to prevent closing when clicking outside
+          onPointerDownOutside={e => e.preventDefault()}
+          // Remove onInteractOutside handler to prevent closing when interacting outside
+          onInteractOutside={e => e.preventDefault()}
+          // Prevent Escape key from closing the dialog
+          onEscapeKeyDown={e => e.preventDefault()}
         >
           {/* Mac-style title bar */}
           <div
@@ -351,9 +357,9 @@ const MacDialogContent = ({ children, ...props }: React.HTMLAttributes<HTMLDivEl
   <div {...props}>{children}</div>
 );
 const MacDialogHeader = ({
-                           className,
-                           ...props
-                         }: React.HTMLAttributes<HTMLDivElement>) => (
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
       'flex flex-col space-y-1.5 text-center sm:text-left',
@@ -363,9 +369,9 @@ const MacDialogHeader = ({
   />
 );
 const MacDialogFooter = ({
-                           className,
-                           ...props
-                         }: React.HTMLAttributes<HTMLDivElement>) => (
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
       'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',

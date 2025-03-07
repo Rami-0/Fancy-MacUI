@@ -20,7 +20,7 @@ export function SettingsPopover({ open, onOpenChange }: ComponentProps) {
 
   return (
     <MacDialog
-      initialPosition={{ x: 800, y: 50 }}
+      initialPosition={{ x: 900, y: 400 }}
       initialSize={{ width: 350, height: 300 }}
       title="Settings"
       className="z-[1000]"

@@ -35,6 +35,13 @@ export default function Home() {
     setIsSettingsOpen(false);
   };
 
+  const closeAll = () => {
+    setIsHomeOpen(false);
+    setIsProjectsOpen(false);
+    setIsProfileOpen(false);
+    setIsSettingsOpen(false);
+  }
+
   const openProjects = () => {
     setIsHomeOpen(false);
     setIsProjectsOpen(true);
@@ -58,7 +65,7 @@ export default function Home() {
 
 
   const items = [
-    { icon: <VscHome size={18} />, label: 'Home', onClick: openHome },
+    { icon: <VscHome size={18} />, label: 'Home', onClick: closeAll },
     { icon: <VscFileCode size={18} />, label: 'Projects', onClick: openProjects },
     { icon: <VscAccount size={18} />, label: 'Profile', onClick: openProfile },
     { icon: <VscSettingsGear size={18} />, label: 'Settings', onClick: openSettings },
