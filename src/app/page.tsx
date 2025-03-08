@@ -28,13 +28,6 @@ export default function Home() {
     }, 2000); // Adjust delay as needed
   }, []);
 
-  const openHome = () => {
-    setIsHomeOpen(true);
-    setIsProjectsOpen(false);
-    setIsProfileOpen(false);
-    setIsSettingsOpen(false);
-  };
-
   const closeAll = () => {
     setIsHomeOpen(false);
     setIsProjectsOpen(false);

@@ -65,7 +65,8 @@ export default function InfoComponent({ open, onOpenChange }: ComponentProps) {
           </div>
 
           <div className="flex gap-4 mt-6">
-            <a target={'_blank'} href="https://www.linkedin.com/in/rami-alshalabi-920873169" className="text-blue-400 hover:text-blue-300">
+            <a target={'_blank'} href="https://www.linkedin.com/in/rami-alshalabi-920873169"
+               className="text-blue-400 hover:text-blue-300">
               <FaLinkedin size={24} />
             </a>
             <a target={'_blank'} href="https://t.me/u88s8" className="text-blue-400 hover:text-blue-300">
@@ -84,11 +85,11 @@ export default function InfoComponent({ open, onOpenChange }: ComponentProps) {
             <Button
               variant="secondary"
               className="bg-blue-600 hover:bg-blue-500 text-white py-2 px-6 rounded-md"
+              onClick={() => window.open('/assets/EN_CV.pdf', '_blank')}
             >
               Download Resume
             </Button>
           </div>
-
           {/* Footer */}
           <div className="text-xs text-gray-500 text-center mt-6">
             <p>© 2025 Rami Alshalabi</p>
