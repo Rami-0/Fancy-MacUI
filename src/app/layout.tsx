@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Suspense, useEffect, useState } from 'react';
 import './global.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { Kings } from 'next/font/google';

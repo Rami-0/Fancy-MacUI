@@ -3,141 +3,146 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
+import GlitchText from '@/components/blocks/TextAnimations/GlitchText';
 
 const Preloader = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [animationSpeed, setAnimationSpeed] = useState(1);
-  const [spinnerSize, setSpinnerSize] = useState(80);
-  const [textOpacity, setTextOpacity] = useState(1);
+  const [animationSpeed] = useState(1);
+  const [textOpacity] = useState(1);
+  const [showGlitch, setShowGlitch] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const spinnerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const glitchRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const container = containerRef.current;
-    const spinner = spinnerRef.current;
-    const text = textRef.current;
+    // Hide the glitch text initially to prevent premature flickering
+    const timer = setTimeout(() => {
+      setShowGlitch(true);
+    }, 100);
 
-    if (container && spinner && text) {
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!showGlitch) return;
+
+    // Create audio element for voice effect
+    audioRef.current = new Audio('/whoosh-sound.mp3'); // Replace with your actual sound file
+
+    const container = containerRef.current;
+    const text = textRef.current;
+    const glitchElement = glitchRef.current;
+
+    if (container && text && glitchElement) {
       const tl = gsap.timeline({
         onComplete: () => {
           setIsLoading(false);
-        }
+        },
+      });
+
+      // Set the total duration to 2 seconds regardless of animation speed
+      const totalDuration = 2;
+
+      // Initial setup - ensure the element is hidden at first
+      gsap.set(glitchElement, {
+        opacity: 0,
+        perspective: 800,
+        transformStyle: 'preserve-3d',
+        scale: 0.5,
+        z: 500,
+        rotationX: 15,
       });
 
       // Adjust animation based on speed slider
       tl.timeScale(animationSpeed);
 
-      // Dynamic animations
-      tl.fromTo(spinner, 
-        { 
-          rotation: 0, 
-          scale: 0.6, 
-          opacity: 0 
-        },
+      // Small delay before starting to ensure DOM is ready
+      tl.to({}, { duration: 0.1 });
+
+      // Text comes from inside (z perspective animation)
+      tl.to(glitchElement,
         {
-          rotation: 360,
-          scale: spinnerSize / 100,
           opacity: 1,
-          duration: 1.2 / animationSpeed,
-          ease: "power2.out",
-          repeat: -1
-        })
-        .fromTo(text, 
-          { 
-            opacity: 0, 
-            y: 20, 
-            scale: 0.8 
-          }, 
-          {
-            opacity: textOpacity, 
-            y: 0, 
-            scale: 1,
-            duration: 0.8 / animationSpeed,
-            ease: "back.out(1.7)"
-          }, 
-          "-=0.6"
-        )
-        .to(container, {
-          opacity: 0,
-          scale: 1.1,
-          duration: 0.8 / animationSpeed,
-          ease: "power2.inOut",
-          delay: 0.3
-        });
+          scale: 1,
+          z: 0,
+          rotationX: 0,
+          duration: totalDuration * 0.4,
+          ease: 'power3.out',
+        },
+      );
+
+      // Hold for a moment
+      tl.to(glitchElement, {
+        duration: totalDuration * 0.1,
+      });
+
+      // Text goes outside animation with audio trigger
+      tl.to(glitchElement, {
+        opacity: 0,
+        scale: 2,
+        z: -400, // Move "outside" the screen (away from viewer)
+        rotationX: -15,
+        duration: totalDuration * 0.4,
+        ease: 'power2.in',
+        onStart: () => {
+          // Play sound effect when text starts moving out
+          if (audioRef.current) {
+            audioRef.current.play().catch(err => console.error('Audio play failed:', err));
+          }
+        },
+      });
+
+      // Fade out the entire container
+      tl.to(container, {
+        opacity: 0,
+        scale: 1.1,
+        duration: totalDuration * 0.2,
+        ease: 'power2.inOut',
+      }, '-=0.3');
 
       // Cleanup function
       return () => {
         tl.kill();
+        if (audioRef.current) {
+          audioRef.current.pause();
+          audioRef.current = null;
+        }
       };
     }
-  }, [animationSpeed, spinnerSize, textOpacity]);
+  }, [animationSpeed, textOpacity, showGlitch]);
 
   return (
     <AnimatePresence>
       {isLoading && (
         <motion.div
           ref={containerRef}
-          className="fixed top-0 left-0 w-full h-full bg-primary z-50 flex flex-col items-center justify-center overflow-hidden"
-          initial={{ opacity: 1, scale: 1 }}
-          exit={{ 
-            opacity: 0, 
-            scale: 1.2,
-            transition: { 
-              duration: 0.6, 
-              ease: "easeInOut" 
-            }
-          }}
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-primary bg-opacity-90"
+          initial={{ opacity: 1 }}
         >
-          {/* Centered Spinner */}
-          <motion.div
-            ref={spinnerRef}
-            className="rounded-full border-4 border-dashed border-primary-foreground animate-spin"
-            style={{
-              width: `${spinnerSize}px`,
-              height: `${spinnerSize}px`
-            }}
-            initial={{ 
-              opacity: 0, 
-              scale: 0.6 
-            }}
-            animate={{ 
-              opacity: 1, 
-              scale: 1,
-              rotate: 360
-            }}
-            transition={{
-              duration: 1.2,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          />
-
-          {/* Centered Text */}
-          <motion.div
+          {/* Text container with 3D perspective */}
+          <div
             ref={textRef}
-            className="text-4xl font-bold text-primary-foreground mt-4"
-            initial={{ 
-              opacity: 0, 
-              y: 20, 
-              scale: 0.8 
-            }}
-            animate={{ 
-              opacity: textOpacity, 
-              y: 0, 
-              scale: 1 
-            }}
-            transition={{
-              duration: 0.8,
-              ease: "backOut"
-            }}
-            style={{ 
-              textShadow: '2px 2px 4px rgba(0,0,0,0.2)' 
-            }}
+            className="relative"
+            style={{ visibility: showGlitch ? 'visible' : 'hidden' }}
           >
-            RAMI
-          </motion.div>
+            <div
+              ref={glitchRef}
+              className="transform-gpu"
+              style={{
+                transformStyle: 'preserve-3d',
+                opacity: 0, // Start hidden and let GSAP control visibility
+              }}
+            >
+              <GlitchText
+                speed={1}
+                className={'text-primary-foreground'}
+              >
+                Rami
+              </GlitchText>
+            </div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

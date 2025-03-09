@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Container from '@/components/ui/container';
 import Clock from '@/components/clock/Clock';
+import TimeCounter from '@/components/time-counter';
 
 interface GridItem {
   id: string;
@@ -16,40 +17,40 @@ const HeroSection: React.FC = () => {
   // Define our grid items
   const [items, setItems] = useState<GridItem[]>([
     {
+      id: 'widget1',
+      content: <TimeCounter />,
+      size: 'small',
+      position: 0,
+    },
+    {
       id: 'clock',
       content: <Clock />,
       size: 'large',
-      position: 0
-    },
-    {
-      id: 'widget1',
-      content: '1',
-      size: 'small',
-      position: 1
+      position: 1,
     },
     {
       id: 'widget2',
-      content: '2',
+      content: 'Coming Soon...',
       size: 'small',
-      position: 2
+      position: 2,
     },
     {
       id: 'widget3',
-      content: '3',
+      content: 'Coming Soon...',
       size: 'small',
-      position: 3
+      position: 3,
     },
     {
       id: 'widget4',
-      content: '4',
+      content: 'Coming Soon...',
       size: 'small',
-      position: 4
+      position: 4,
     },
     {
       id: 'widget5',
-      content: '5',
+      content: 'Coming Soon...',
       size: 'small',
-      position: 5
+      position: 5,
     },
   ]);
 
@@ -144,12 +145,12 @@ const HeroSection: React.FC = () => {
                 animate={{
                   opacity: 1,
                   scale: isDragging ? 1.05 : 1,
-                  zIndex: isDragging ? 10 : 1
+                  zIndex: isDragging ? 10 : 1,
                 }}
                 transition={{
                   type: 'spring',
                   stiffness: 300,
-                  damping: 30
+                  damping: 30,
                 }}
                 draggable={true}
                 onDragStart={() => handleDragStart(item.id)}
@@ -162,20 +163,21 @@ const HeroSection: React.FC = () => {
                     w-full h-full rounded-2xl
                     backdrop-blur-md flex justify-center items-center
                     border-2 transition-all duration-300
-                    ${isDragging ? 'cursor-grabbing ring-4 ring-white/40 scale-105' : 'cursor-grab'}
+                    ${isDragging ? 'cursor-grabbing ring-4 ring-white/40' : 'cursor-grab'}
                     ${isDropTarget ? 'bg-white/20 border-white/40' : 'bg-black/10 border-white/20'}
                   `}
                 >
                   {/* Widget content with subtle animation */}
                   <motion.div
                     className="text-6xl z-10 font-bold text-white flex justify-center items-center w-full h-full"
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1 }}
                   >
                     {item.content}
                   </motion.div>
 
                   {/* Gradient overlay for visual depth */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 via-transparent to-black/10 pointer-events-none"></div>
+                  <div
+                    className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 via-transparent to-black/10 pointer-events-none"></div>
 
                   {/* Inner shadow effect */}
                   <div className="absolute inset-0 rounded-2xl shadow-inner pointer-events-none"></div>

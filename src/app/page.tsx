@@ -16,7 +16,6 @@ import Container from '@/components/ui/container';
 export default function Home() {
   const { animationsEnabled } = useTheme();
   const [loading, setLoading] = useState(true);
-  const [isHomeOpen, setIsHomeOpen] = useState(false);
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -29,28 +28,24 @@ export default function Home() {
   }, []);
 
   const closeAll = () => {
-    setIsHomeOpen(false);
     setIsProjectsOpen(false);
     setIsProfileOpen(false);
     setIsSettingsOpen(false);
   }
 
   const openProjects = () => {
-    setIsHomeOpen(false);
     setIsProjectsOpen(true);
     setIsProfileOpen(false);
     setIsSettingsOpen(false);
   };
 
   const openProfile = () => {
-    setIsHomeOpen(false);
     setIsProjectsOpen(false);
     setIsProfileOpen(true);
     setIsSettingsOpen(false);
   };
 
   const openSettings = () => {
-    setIsHomeOpen(false);
     setIsProjectsOpen(false);
     setIsProfileOpen(false);
     setIsSettingsOpen(true);
@@ -79,7 +74,6 @@ export default function Home() {
             baseItemSize={50}
             magnification={70}
           />
-          {isHomeOpen && <Container className=""><p>Home Content</p></Container>}
           {isProjectsOpen && <MacFinderDemo open={isProjectsOpen} onOpenChange={setIsProjectsOpen} />}
           {isProfileOpen && <InfoComponent open={isProfileOpen} onOpenChange={setIsProfileOpen} />}
           {isSettingsOpen && <SettingsPopover open={isSettingsOpen} onOpenChange={setIsSettingsOpen} />}
