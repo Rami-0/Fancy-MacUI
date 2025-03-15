@@ -1,10 +1,20 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Container from '@/components/ui/container';
 import Clock from '@/components/clock/Clock';
 import TimeCounter from '@/components/time-counter';
+import TiltedCard from '@/components/blocks/Components/TiltedCard/TiltedCard';
+import Folder from '@/components/blocks/Components/Folder/Folder';
+
+import { FaReact } from 'react-icons/fa';
+import { SiNextdotjs, SiTailwindcss } from 'react-icons/si';
+import { FaNodeJs, FaJava } from 'react-icons/fa';
+import { SiExpress } from 'react-icons/si';
+import { FaAws, FaDocker } from 'react-icons/fa';
+import { SiVercel } from 'react-icons/si';
+
 
 interface GridItem {
   id: string;
@@ -17,40 +27,80 @@ const HeroSection: React.FC = () => {
   // Define our grid items
   const [items, setItems] = useState<GridItem[]>([
     {
-      id: 'widget1',
-      content: <TimeCounter />,
+      id: 'clock',
+      content: <Clock />,
       size: 'small',
       position: 0,
     },
     {
-      id: 'clock',
-      content: <Clock />,
-      size: 'large',
-      position: 1,
+      id: 'widget1',
+      content: <TimeCounter />,
+      size: 'small',
+      position: 2,
     },
     {
       id: 'widget2',
       content: 'Coming Soon...',
       size: 'small',
-      position: 2,
+      position: 5,
     },
     {
       id: 'widget3',
-      content: 'Coming Soon...',
-      size: 'small',
-      position: 3,
+      content: <div className={'w-full h-full relative flex items-center justify-center gap-60'}>
+        <Folder
+          size={2}
+          color="#61DAFB"
+          className="custom-folder"
+          items={[
+            <FaReact size={24} color="#61DAFB" />,
+            <SiTailwindcss size={24} color="#38B2AC" />,
+            <SiNextdotjs size={24} color="#000000" />,
+          ]}
+          title="Frontend"
+        />
+
+        <Folder
+          size={2}
+          color="#3C873A"
+          className="custom-folder"
+          items={[
+            <FaNodeJs size={24} color="#3C873A" />,
+            <SiExpress size={24} color="#000000" />,
+            <FaJava size={24} color="#007396" />,
+          ]}
+          title="Backend"
+        />
+
+        <Folder
+          size={2}
+          color="#FF9900"
+          className="custom-folder"
+          items={[
+            <FaAws size={24} color="#FF9900" />,
+            <SiVercel size={24} color="#00A4EF" />,
+            <>
+              <FaDocker size={24} color="#2496ED" />
+              <img src={'https://qualitapps.com/wp-content/uploads/2023/09/devops-concept-1.jpg'} width={24} height={24} color="#326CE5" />
+            </>,
+          ]}
+          title="Cloud & DevOps"
+        />
+      </div>
+      ,
+      size: 'large',
+      position: 4,
     },
     {
       id: 'widget4',
       content: 'Coming Soon...',
       size: 'small',
-      position: 4,
+      position: 1,
     },
     {
       id: 'widget5',
       content: 'Coming Soon...',
       size: 'small',
-      position: 5,
+      position: 3,
     },
   ]);
 
@@ -170,7 +220,7 @@ const HeroSection: React.FC = () => {
                   {/* Widget content with subtle animation */}
                   <motion.div
                     className="text-6xl z-10 font-bold text-white flex justify-center items-center w-full h-full"
-                    whileHover={{ scale: 1 }}
+                    whileHover={{ scale: 1, zIndex: 10 }}
                   >
                     {item.content}
                   </motion.div>

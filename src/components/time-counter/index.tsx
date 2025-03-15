@@ -63,7 +63,7 @@ const TimeCounter = () => {
             />
             hrs
           </GradientText>
-          <span className={'text-lg text-primary-foreground opacity-70'}>in the last 6 months.</span>
+          <span className={'text-lg text-primary-foreground opacity-70'}>in the last couple months.</span>
         </div>
       ) : (
         <div className="text-gray-500">No time tracking data available.</div>
