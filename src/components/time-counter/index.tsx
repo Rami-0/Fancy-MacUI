@@ -13,7 +13,6 @@ const TimeCounter = () => {
   useEffect(() => {
     const fetchTimeSpent = async () => {
       try {
-        // Updated to use the correct API endpoint path
         const response = await fetch('/api/wakatime');
 
         if (!response.ok) {
@@ -34,24 +33,24 @@ const TimeCounter = () => {
   }, []);
 
   if (loading) return (
-    <div className="flex items-center justify-center p-4">
-      <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-blue-500 mr-3"></div>
+    <div className="flex items-center justify-center p-2 sm:p-4">
+      <div className="animate-spin rounded-full h-4 w-4 sm:h-6 sm:w-6 border-t-2 border-b-2 border-blue-500 mr-2 sm:mr-3"></div>
     </div>
   );
 
   if (error) return (
-    <div className={`flex items-center justify-center p-4`}>
+    <div className="flex items-center justify-center p-2 sm:p-4">
       <FuzzyText enableHover={false} baseIntensity={0.1}>
-        Opps!
+        <span className="text-sm sm:text-base">Opps!</span>
       </FuzzyText>
     </div>
   );
 
   return (
-    <div className="p-4 rounded-lg shadow-sm">
+    <div className="p-2 sm:p-4 rounded-lg shadow-sm">
       {timeSpent !== null ? (
-        <div className="flex items-center flex-col gap-2 font-black">
-          <GradientText>
+        <div className="flex items-center flex-col gap-1 sm:gap-2">
+          <GradientText className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl font-black">
             +
             <CountUp
               from={0}
@@ -63,10 +62,12 @@ const TimeCounter = () => {
             />
             hrs
           </GradientText>
-          <span className={'text-lg text-primary-foreground opacity-70'}>in the last couple months.</span>
+          <span className="text-sm sm:text-base md:text-xl lg:text-2xl text-primary-foreground opacity-70 text-center">
+            in the last couple months.
+          </span>
         </div>
       ) : (
-        <div className="text-gray-500">No time tracking data available.</div>
+        <div className="text-sm sm:text-base text-gray-500 text-center">No time tracking data available.</div>
       )}
     </div>
   );

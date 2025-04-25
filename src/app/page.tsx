@@ -11,6 +11,8 @@ import { SettingsPopover } from '@/components/setting-popover/SettingsPopover';
 import { MacFinderDemo } from '@/components/mac-dialog-demo/MacDialogDemo';
 import InfoComponent from '@/components/info-component';
 import Preloader from '@/components/preloader/Preloader';
+import MobileLayout from '@/components/ui/mobile-layout';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 // Define dialog types for better type safety
 type DialogType = 'none' | 'projects' | 'profile' | 'settings';
@@ -20,6 +22,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   // Use a single state variable for active dialog
   const [activeDialog, setActiveDialog] = useState<DialogType>('none');
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   useEffect(() => {
     // Use a more efficient approach for initial loading
@@ -33,36 +36,12 @@ export default function Home() {
   }, []);
 
   // Single function to handle dialog state
-  const handleDialogChange = (dialog: DialogType) => {
+  const handleDialogOpen = (dialog: DialogType) => {
     setActiveDialog(dialog);
   };
 
-  // Create dock items with the new handler
-  const items = [
-    { 
-      icon: <VscHome size={18} />, 
-      label: 'Home', 
-      onClick: () => handleDialogChange('none') 
-    },
-    { 
-      icon: <VscFileCode size={18} />, 
-      label: 'Projects', 
-      onClick: () => handleDialogChange('projects') 
-    },
-    { 
-      icon: <VscAccount size={18} />, 
-      label: 'Profile', 
-      onClick: () => handleDialogChange('profile') 
-    },
-    { 
-      icon: <VscSettingsGear size={18} />, 
-      label: 'Settings', 
-      onClick: () => handleDialogChange('settings') 
-    },
-  ];
-
   // Helper functions to check dialog state and handle changes
-  const isDialogOpen = (dialog: DialogType): boolean => activeDialog === dialog;
+  const isDialogOpen = (dialog: DialogType) => activeDialog === dialog;
   const handleDialogClose = (dialog: DialogType) => {
     if (activeDialog === dialog) {
       setActiveDialog('none');
@@ -71,39 +50,64 @@ export default function Home() {
 
   return (
     <>
-      {loading && <Preloader />}
-      {!loading && (
-        <main className="rounded-lg overflow-hidden w-full h-full relative">
-          {animationsEnabled && <SplashCursor />}
-          <Header />
-          <HeroSection />
-          <Dock
-            items={items}
-            panelHeight={30}
-            baseItemSize={50}
-            magnification={70}
-          />
-          
-          {/* Render dialogs based on active state */}
-          {isDialogOpen('projects') && (
-            <MacFinderDemo 
-              open={true} 
-              onOpenChange={() => handleDialogClose('projects')} 
-            />
-          )}
-          
-          {isDialogOpen('profile') && (
-            <InfoComponent 
-              open={true} 
-              onOpenChange={() => handleDialogClose('profile')} 
-            />
-          )}
-          
-          {isDialogOpen('settings') && (
-            <SettingsPopover 
-              open={true} 
-              onOpenChange={() => handleDialogClose('settings')} 
-            />
+      {loading ? (
+        <Preloader />
+      ) : (
+        <main className={`relative w-full ${isMobile ? 'h-full' : 'h-screen overflow-hidden'}`}>
+          {isMobile ? (
+            <MobileLayout />
+          ) : (
+            <>
+              <Header />
+              <HeroSection />
+              {animationsEnabled && <SplashCursor />}
+              <Dock
+                items={[
+                  {
+                    label: 'Home',
+                    icon: <VscHome size={18} />,
+                  },
+                  {
+                    label: 'Projects',
+                    icon: <VscFileCode size={18} />,
+                    onClick: () => handleDialogOpen('projects'),
+                  },
+                  {
+                    label: 'Profile',
+                    icon: <VscAccount size={18} />,
+                    onClick: () => handleDialogOpen('profile'),
+                  },
+                  {
+                    label: 'Settings',
+                    icon: <VscSettingsGear size={18} />,
+                    onClick: () => handleDialogOpen('settings'),
+                  },
+                ]}
+                magnification={70}
+              />
+              
+              {/* Render dialogs based on active state */}
+              {isDialogOpen('projects') && (
+                <MacFinderDemo 
+                  open={true} 
+                  onOpenChange={() => handleDialogClose('projects')} 
+                />
+              )}
+              
+              {isDialogOpen('profile') && (
+                <InfoComponent 
+                  open={true} 
+                  onOpenChange={() => handleDialogClose('profile')} 
+                />
+              )}
+              
+              {isDialogOpen('settings') && (
+                <SettingsPopover 
+                  open={true} 
+                  onOpenChange={() => handleDialogClose('settings')} 
+                />
+              )}
+            </>
           )}
         </main>
       )}
