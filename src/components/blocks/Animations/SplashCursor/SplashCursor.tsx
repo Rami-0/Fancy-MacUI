@@ -5,7 +5,6 @@
 */
 
 // @ts-nocheck
-
 "use client";
 import React, { useEffect, useRef } from "react";
 
@@ -1460,75 +1459,104 @@ export default function SplashCursor({
       clickSplat(pointer);
     });
 
-    // Start rendering on first mouse move
+    // Animation frame ID for cleanup
+    let animationFrameId: number;
+    
+    // Event handler functions - defined as named functions for proper cleanup
     function handleFirstMouseMove(e: MouseEvent) {
       const pointer = pointers[0];
       const posX = scaleByPixelRatio(e.clientX);
       const posY = scaleByPixelRatio(e.clientY);
       const color = generateColor();
-      updateFrame();
+      animationFrameId = requestAnimationFrame(updateFrame);
       updatePointerMoveData(pointer, posX, posY, color);
       document.body.removeEventListener("mousemove", handleFirstMouseMove);
     }
-    document.body.addEventListener("mousemove", handleFirstMouseMove);
-
-    window.addEventListener("mousemove", (e) => {
+    
+    function handleMouseDown(e: MouseEvent) {
+      const pointer = pointers[0];
+      const posX = scaleByPixelRatio(e.clientX);
+      const posY = scaleByPixelRatio(e.clientY);
+      updatePointerDownData(pointer, -1, posX, posY);
+      clickSplat(pointer);
+    }
+    
+    function handleMouseMove(e: MouseEvent) {
       const pointer = pointers[0];
       const posX = scaleByPixelRatio(e.clientX);
       const posY = scaleByPixelRatio(e.clientY);
       const color = pointer.color;
       updatePointerMoveData(pointer, posX, posY, color);
-    });
-
-    // Start rendering on first touch
+    }
+    
     function handleFirstTouchStart(e: TouchEvent) {
       const touches = e.targetTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         const posX = scaleByPixelRatio(touches[i].clientX);
         const posY = scaleByPixelRatio(touches[i].clientY);
-        updateFrame();
+        animationFrameId = requestAnimationFrame(updateFrame);
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
       }
       document.body.removeEventListener("touchstart", handleFirstTouchStart);
     }
-    document.body.addEventListener("touchstart", handleFirstTouchStart);
-
-    window.addEventListener(
-      "touchstart",
-      (e) => {
-        const touches = e.targetTouches;
-        const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
-          const posX = scaleByPixelRatio(touches[i].clientX);
-          const posY = scaleByPixelRatio(touches[i].clientY);
-          updatePointerDownData(pointer, touches[i].identifier, posX, posY);
-        }
-      },
-      false,
-    );
-
-    window.addEventListener(
-      "touchmove",
-      (e) => {
-        const touches = e.targetTouches;
-        const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
-          const posX = scaleByPixelRatio(touches[i].clientX);
-          const posY = scaleByPixelRatio(touches[i].clientY);
-          updatePointerMoveData(pointer, posX, posY, pointer.color);
-        }
-      },
-      false,
-    );
-
-    window.addEventListener("touchend", (e) => {
+    
+    function handleTouchStart(e: TouchEvent) {
+      const touches = e.targetTouches;
+      const pointer = pointers[0];
+      for (let i = 0; i < touches.length; i++) {
+        const posX = scaleByPixelRatio(touches[i].clientX);
+        const posY = scaleByPixelRatio(touches[i].clientY);
+        updatePointerDownData(pointer, touches[i].identifier, posX, posY);
+      }
+    }
+    
+    function handleTouchMove(e: TouchEvent) {
+      const touches = e.targetTouches;
+      const pointer = pointers[0];
+      for (let i = 0; i < touches.length; i++) {
+        const posX = scaleByPixelRatio(touches[i].clientX);
+        const posY = scaleByPixelRatio(touches[i].clientY);
+        updatePointerMoveData(pointer, posX, posY, pointer.color);
+      }
+    }
+    
+    function handleTouchEnd(e: TouchEvent) {
       const touches = e.changedTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         updatePointerUpData(pointer);
       }
-    });
+    }
+    
+    // Add event listeners
+    document.body.addEventListener("mousemove", handleFirstMouseMove);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mousemove", handleMouseMove);
+    document.body.addEventListener("touchstart", handleFirstTouchStart);
+    window.addEventListener("touchstart", handleTouchStart, false);
+    window.addEventListener("touchmove", handleTouchMove, false);
+    window.addEventListener("touchend", handleTouchEnd);
+    
+    // Start the animation
+    animationFrameId = requestAnimationFrame(updateFrame);
+    
+    // Cleanup function to prevent memory leaks
+    return () => {
+      // Cancel any pending animation frames
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      
+      // Remove all event listeners
+      document.body.removeEventListener("mousemove", handleFirstMouseMove);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.body.removeEventListener("touchstart", handleFirstTouchStart);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
     // ------------------------------------------------------------
   }, [
     SIM_RESOLUTION,

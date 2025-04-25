@@ -102,17 +102,24 @@ function DockItem({
 type DockLabelProps = {
   className?: string;
   children: React.ReactNode;
+  isHovered?: MotionValue<number>;
 };
 
-function DockLabel({ children, className = '', ...rest }: DockLabelProps) {
-  const { isHovered } = rest as { isHovered: MotionValue<number> };
+function DockLabel({ children, className = '', isHovered }: DockLabelProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Only set up the subscription if isHovered is provided
+    if (!isHovered) return;
+    
     const unsubscribe = isHovered.on('change', (latest) => {
       setIsVisible(latest === 1);
     });
-    return () => unsubscribe();
+    
+    // Properly clean up the subscription
+    return () => {
+      unsubscribe();
+    };
   }, [isHovered]);
 
   return (
